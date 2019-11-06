@@ -2,7 +2,7 @@
 > 对React经典API的原生重构
 
 
-![render](static/render.png)
+![render](https://browniu-wx-1257187612.cos.ap-shanghai.myqcloud.com/GitHub/render.png)
 
 目前实现的API有：
 * JSX语法解析
