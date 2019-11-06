@@ -257,30 +257,23 @@ function () {
     key: "setState",
     value: function setState(state) {
       // 更新状态
-      // Object.assign(this.state, state);
-      // // 重新渲染
-      // this.componentDidUpdate();
-      // renderComponent(this)
-      var queue = [];
+      Object.assign(this.state, state); // 重新渲染
 
-      var queueSetState = function queueSetState(state, component) {
-        queue.push({
-          state: state,
-          component: component
-        });
-      };
-
-      var flash = function flash(queue) {
-        var item;
-
-        while (item === queue.shift()) {
-          var _state = item.state,
-              component = item.component;
-          if (!component.prevState) component.prevState = Object.assign({}, component.state);
-
-          if (typeof _state === 'function') {}
-        }
-      };
+      this.componentDidUpdate();
+      renderComponent(this); // const queue = [];
+      // const queueSetState = (state, component) => {
+      //     queue.push({state, component})
+      // };
+      // const flash = (queue) => {
+      //     let item;
+      //     while (item === queue.shift()) {
+      //         const {state, component} = item;
+      //         if (!component.prevState) component.prevState = Object.assign({}, component.state)
+      //         if (typeof state === 'function') {
+      //
+      //         }
+      //     }
+      // }
     }
   }, {
     key: "componentDidUpdate",
@@ -396,8 +389,8 @@ function (_React$Component) {
 
     _classCallCheck(this, Comp2);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Comp2).call(this, props)); // console.log('constructor');
-
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Comp2).call(this, props));
+    console.log('constructor');
     _this.props = props;
     _this.state = {
       count: 0
@@ -407,11 +400,13 @@ function (_React$Component) {
 
   _createClass(Comp2, [{
     key: "componentDidMount",
-    value: function componentDidMount() {// console.log('componentDidMount', this.state)
+    value: function componentDidMount() {
+      console.log('componentDidMount', this.state);
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate() {// console.log('我更新啦')
+    value: function componentDidUpdate() {
+      console.log('我更新啦');
     }
   }, {
     key: "add",
@@ -442,7 +437,7 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // console.log('render');
+      console.log('render');
       return _index.React.createElement("div", null, _index.React.createElement("h3", null, this.props.name), _index.React.createElement("p", null, "\u6211\u662F\u4E00\u4E2A\u7C7B\u7EC4\u4EF6"), _index.React.createElement("p", null, "\u6211\u7684\u5185\u90E8\u72B6\u6001\u662F ", this.state.count), _index.React.createElement("button", {
         onClick: function onClick() {
           return _this2.add();
@@ -451,11 +446,7 @@ function (_React$Component) {
         onClick: function onClick() {
           return _this2.reduce();
         }
-      }, "-"), _index.React.createElement("button", {
-        onClick: function onClick() {
-          return _this2.crazy();
-        }
-      }, "\u75AF\u72C2"));
+      }, "-"));
     }
   }]);
 
@@ -493,7 +484,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53142" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
